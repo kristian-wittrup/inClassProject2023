@@ -22,9 +22,9 @@
       <button class="btn-delete" @click="firebaseDeleteSingleItem(product.id)">Delete item</button>
     
       <p>
-        <input type="text" placeholder="New product name" v-model="UpdateProductData.productName" />
+        <input type="text" placeholder="New product name" v-model="product.productName" />
       </p>
-      <button class="btn-edit" @click="firebaseUpdateSingleItem(product)">Edit item</button>
+      <button class="btn-edit" @click="firebaseUpdateSingleItem(product.id)">Edit item</button>
       <hr>
     </div>
   </div>
@@ -41,7 +41,7 @@ const {
   firebaseAddSingleItem ,
   AddProductData,
   firebaseUpdateSingleItem,
-  UpdateProductData
+  //UpdateProductData
 } = useProducts();
 
 onMounted(() => {

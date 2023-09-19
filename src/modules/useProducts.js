@@ -45,15 +45,17 @@ const useProducts = () => {
       }
     );
       
-    console.log("is added")
+    console.log("is added") 
+
   }
 
   const firebaseUpdateSingleItem = async(product) => { 
-    await updateDoc(doc(productDataRef, product.id), {
-      productName: UpdateProductData.value.productName, 
-      productPrice: 200
+    await updateDoc(doc(productDataRef, product), {
+        productName: products.value.find(product => product.id === product.id).productName, 
+     // productName: UpdateProductData.value.productName, 
+     // productPrice: 200
     }).then(() => {
-      UpdateProductData.value.productName = ''
+     // UpdateProductData.value.productName = ''
     })
   }
 
