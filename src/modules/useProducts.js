@@ -8,6 +8,8 @@ const useProducts = () => {
   const products = ref([]); // to store data from firebase
   const productDataRef = collection(db, 'products');
 
+  
+
   const AddProductData = ref({
     productName: '',
     productPrice: ''
@@ -43,7 +45,8 @@ const useProducts = () => {
         productName: AddProductData.value.productName,
         productPrice: 100
       }
-    );
+    ).then({
+    });
       
     console.log("is added") 
 

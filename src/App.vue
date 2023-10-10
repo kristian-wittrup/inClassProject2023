@@ -53,10 +53,44 @@ let logOut = () => {
     </div>
   </header>
 
-  <RouterView />
+
+  <router-view v-slot="{ Component, route }">
+      <Transition name="fade" mode="out-in">
+        <div :key="route.name">  
+          <component :is="Component"></component>
+        </div>
+      </Transition>
+    </router-view>
+    
+<!-- makes error on switch between views
+  <RouterView v-slot="{ Component }">
+  <Transition name="fade">
+    <component :is="Component" />
+  </Transition>
+</RouterView>
+ -->
+
+<!--   <RouterView />  old -->
 </template>
 
 <style scoped>
+
+.fade-enter-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+
+
+
 header {
   line-height: 1.5;
   max-height: 100vh;
